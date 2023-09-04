@@ -14,7 +14,7 @@
 
 html, body {
     height: 100%;
-    cursor: none;
+    // cursor: none;
 }
 
 body {
@@ -44,7 +44,6 @@ a {
     text-decoration: none;
     color: $textColor;
     transition: all 200ms ease;
-    cursor: none;
 
     &:hover {
         color: $hrefColorHover;
@@ -97,22 +96,6 @@ a {
         width: 70px;
         height: 70px;
         background-color: rgba(0,102,255,0.15);
-    }
-}
-
-#innerCursor {
-    display: none;
-    width: 4px;
-    height: 4px;
-    background-color: $textColor;
-    border-radius: 50%;
-    border: 0;
-    position: absolute;
-    z-index: 999;
-    pointer-events: none;
-
-    &.show {
-        display: block;
     }
 }
 
@@ -196,6 +179,8 @@ header {
             }
 
             #nav-control {
+                cursor: pointer;
+
                 div {
                     margin-right: 20px;
                     width: 30px;

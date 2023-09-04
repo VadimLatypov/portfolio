@@ -21,13 +21,10 @@ const cursorMove = () => {
             return
 
         $("body").hover(function(){
-            $("#cursor, #innerCursor").addClass("show");
+            $("#cursor").addClass("show");
         }, function () {
-            $("#cursor, #innerCursor").removeClass("show");
+            $("#cursor").removeClass("show");
         });
-
-        $('#innerCursor').css('left', e.pageX + 'px');
-        $('#innerCursor').css('top', e.pageY + 'px');
 
         $('#cursor').css('left', e.pageX + 'px');
         $('#cursor').css('top', e.pageY + 'px');
