@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Description" content="Название">
+    <meta name="author" content="Вадим Латыпов">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/main.min.css">
+    <script src="https://kit.fontawesome.com/c0c3afc1db.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="parallax">
+            <div id="mountain1" data-speed="2"></div>
+            <div id="mountain2" data-speed="5"></div>
+            <div id="mountain3" data-speed="11"></div>
+            <div id="mountain4" data-speed="16"></div>
+        </div>
+
+        <div class="header">
+            <a href="#"><p>LTVI</p></a>
+            <nav>
+                <a href="#about" class="activeMouse" onclick="toElement('#about')">Обо мне</a>
+                <a href="#stack" class="activeMouse" onclick="toElement('#stack')">Технологии</a>
+                <a href="#experience" class="activeMouse" onclick="toElement('#experience')">Опыт</a>
+                <a href="#portfolio" class="activeMouse" onclick="toElement('#portfolio')">Портфолио</a>
+                <div id="nav-control" class="activeMouse">
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+        <div class="title">
+            <h1>Латыпов Вадим</h1>
+            <h3>WEB | FRONTEND | FULLSTACK разработчик</h3>
+            <p><a href="#about" class="activeMouse" onclick="toElement('#about')">Подробнее <i class="fa-solid fa-arrow-down fa-fade"></i></a></p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <p id="about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem doloremque fuga laboriosam culpa fugiat accusantium. Veritatis itaque doloribus earum sint error natus delectus totam architecto quia a, eligendi temporibus voluptatum magnam obcaecati molestiae ab eum nam facere! Cupiditate accusamus adipisci quis perferendis officia modi sit aspernatur culpa, possimus, ut fugit, expedita omnis pariatur veritatis beatae deleniti libero illo asperiores. Iste, praesentium. Cupiditate, corrupti. Quisquam quo fugiat provident labore pariatur hic, assumenda, recusandae deserunt non eos, eveniet molestiae aliquam quidem veritatis ad ipsa odit quos quae nobis eaque quis. Debitis exercitationem quam a, libero excepturi cupiditate et voluptatum soluta ducimus dolores. Ut voluptas adipisci animi et numquam dolorem quas rem eaque ducimus sint! Vitae, quidem corporis mollitia quae magni similique ab eos aut dicta. Illo dolorum tempora voluptatem perferendis exercitationem dolores eaque reiciendis numquam commodi, laboriosam eveniet? Ratione nulla quaerat assumenda soluta magni quasi beatae exercitationem vel aut, perspiciatis in id sed debitis, dicta quos corporis molestiae optio voluptatibus quod. Aut enim optio labore odit dolorum quae, incidunt asperiores autem aliquam reiciendis facere, nam dolore quisquam quaerat eligendi quibusdam adipisci rerum ratione natus corporis cumque numquam maxime sequi. Iure sed blanditiis debitis totam, delectus placeat obcaecati inventore corrupti repellendus. Debitis, rem.</p>
+
+            <p id="stack">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem doloremque fuga laboriosam culpa fugiat accusantium. Veritatis itaque doloribus earum sint error natus delectus totam architecto quia a, eligendi temporibus voluptatum magnam obcaecati molestiae ab eum nam facere! Cupiditate accusamus adipisci quis perferendis officia modi sit aspernatur culpa, possimus, ut fugit, expedita omnis pariatur veritatis beatae deleniti libero illo asperiores. Iste, praesentium. Cupiditate, corrupti. Quisquam quo fugiat provident labore pariatur hic, assumenda, recusandae deserunt non eos, eveniet molestiae aliquam quidem veritatis ad ipsa odit quos quae nobis eaque quis. Debitis exercitationem quam a, libero excepturi cupiditate et voluptatum soluta ducimus dolores. Ut voluptas adipisci animi et numquam dolorem quas rem eaque ducimus sint! Vitae, quidem corporis mollitia quae magni similique ab eos aut dicta. Illo dolorum tempora voluptatem perferendis exercitationem dolores eaque reiciendis numquam commodi, laboriosam eveniet? Ratione nulla quaerat assumenda soluta magni quasi beatae exercitationem vel aut, perspiciatis in id sed debitis, dicta quos corporis molestiae optio voluptatibus quod. Aut enim optio labore odit dolorum quae, incidunt asperiores autem aliquam reiciendis facere, nam dolore quisquam quaerat eligendi quibusdam adipisci rerum ratione natus corporis cumque numquam maxime sequi. Iure sed blanditiis debitis totam, delectus placeat obcaecati inventore corrupti repellendus. Debitis, rem.</p>
+        </div>
+    </main>
+
+    <footer>
+        Футер
+    </footer>
+
+    <div id="cursor"></div>
+    <div id="innerCursor"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/main.min.js"></script>
+</body>
+</html>
