@@ -65,8 +65,8 @@ a {
 // }
 
 .container {
-    width: 80%;
-    margin: 0 10%;
+    width: 90%;
+    margin: 0 5%;
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -78,7 +78,7 @@ a {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid #0066ff;
+    border: 1px solid $brightBlue;
     position: absolute;
     z-index: 998;
     pointer-events: none;
@@ -142,7 +142,6 @@ header {
 
     .header {
         @extend %flexbox;
-
         padding: 10px;
         position: relative;
 
@@ -163,45 +162,37 @@ header {
             }
 
             &:hover {
+                @extend %shadowBlue;
                 border-radius: 50%;
-                -webkit-box-shadow: 0px 0px 5px 0px rgba(250,218,221,1);
-                -moz-box-shadow: 0px 0px 5px 0px rgba(250,218,221,1);
-                box-shadow: 0px 0px 5px 0px rgba(250,218,221,1);
             }
         }
 
         nav {
             @extend %flexbox;
             
-            a {
+            p {
                 display: none;
                 margin-right: 50px;
+                cursor: pointer;
             }
 
             #nav-control {
                 cursor: pointer;
 
-                div {
+                span {
+                    display: block;
                     margin-right: 20px;
                     width: 30px;
                     height: 3px;
                     background-color: $textColor;
                     transition: all 500ms ease;
                     position: relative;
-                }
 
-                *:first-of-type {
-                    top: 6px;
-                }
-
-                *:last-of-type {
-                    top: -6px;
+                    &.first {
+                        margin-bottom: 6px;
+                    }
                 }
             }
-
-            // #nav-control::before {
-            //     margin-bottom: 6px;
-            // }
         }
     }
 
@@ -233,18 +224,15 @@ header {
             padding: 7px 7px;
             text-align: center;
             border: 3px solid $textColor;
-            opacity: 0.3;
+            opacity: 0.4;
             font-size: 1em;
             transition: all 500ms ease;
+            cursor: pointer;
+
+            i {color: $brightBlue}
 
             &:hover {
-                // background-color: $black;
-                // border-color: $black;
                 opacity: 0.9;
-                
-                a {
-                    color: $textColor;
-                }
             }
         }
     }
@@ -253,14 +241,168 @@ header {
 
 // Основная часть
 main {
-    height: 1000px;
     width: 100%;
     z-index: 90;
     background-color: $bgColor;
     position: relative;
 
-    div p {
-        margin-bottom: 200px;
+    .container {
+        #about {
+            // @extend %mainBlocks;
+            margin: 50px 10px 100px;
+            // height: 100vh;
+
+            h2 {
+                font-size: 1.5em;
+                font-weight: 300;
+                margin-bottom: 20px;
+            }
+    
+            p {
+                @extend %TextForMain;
+                margin-bottom: 15px;
+    
+                q {
+                    font-size: 1em;
+                    font-weight: 300;
+                    color: $brightBlue;
+                }
+    
+                a {
+                    color: $pink;
+                    text-decoration: underline $brightBlue;
+                }
+            }
+    
+            ul {
+                @extend %TextForMain;
+                list-style: armenian;
+    
+                li {
+                    @extend %flexbox;
+                    align-items: start;
+    
+                    span {
+                        display: inline-block;
+                        width: 97%;
+    
+                        b {
+                            font-weight: 300;
+                            color: $brightBlue;
+                        }
+                    }
+                } 
+            }
+
+            .img-holder {
+                width: 600px;
+                height: 550px;
+                float: right;
+                margin-left: 25px;
+                background: url('/img/my_photo2.png') center center no-repeat;
+                background-size: 520px;
+                // background-color: $brightBlue;
+                // background-blend-mode: multiply;
+                // border: 1px solid $brightBlue;
+                // @extend %shadowBlue;
+            }
+        }
+
+        #stack {
+            h2 {
+                text-transform: uppercase;
+                font-size: 1.8em;
+                font-weight: 500;
+                text-align: center;
+                margin: 50px 0;
+            }
+
+            .skill-holder {
+
+                .skill {
+                    height: 100%;
+                    line-height: 60px;
+                    border-top: 1px solid $brightBlue;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:last-of-type {
+                        border-bottom: 1px solid $brightBlue;
+                    }
+
+                    // &::before {
+                    //     display: block;
+                    //     content: '';
+                    //     background-color: $brightBlue;
+                    //     height: 100%;
+                    //     width: 100%;
+                    //     position: absolute;
+                    //     transform: translateX(-100px);
+                    //     transition: all 500ms ease;
+                    // }
+
+                    // @keyframes openSkill {
+                    //     0% {transform: translate(-100px)}
+                    //     100% {transform: translateX(0px)}
+                    // }
+
+                    div {
+                        @extend %flexbox;
+                        margin: 0 10px;
+                        opacity: 0.4;
+                        transform: translate(120%, 0px);
+
+                        h3 {
+                            font-size: 1.2em;
+                            font-weight: 300;
+                            text-align: center;
+                        }
+
+                        i:last-of-type {
+                            opacity: 0;
+                            transition: all 600ms ease;
+                        }
+
+                        &:hover {
+                            opacity: 1;
+
+                            i {opacity: 1;}
+                        }
+                    }
+
+                    @for $i from 1 to 8 {
+                        $delay: $i * 150;
+                        &:nth-child(#{$i}) div.active {
+                            transform: translate(0px, 0px);
+                            @if $i == 1 {
+                                transition: transform 500ms ease;
+                            } @else {
+                                transition: transform 500ms ease #{$delay + ms};
+                            }
+                        }
+                    }
+                    
+                    ul {
+                        @extend %TextForMain;
+                        margin-left: 150px;
+                        margin-bottom: 20px;
+                        display: none;
+                    }
+
+                    &.showList {
+
+                        div {
+                            opacity: 1;
+
+                            i:last-of-type {
+                                opacity: 1;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -268,7 +410,7 @@ main {
 // Футер
 footer {
     width: 100%;
-    height: 100px;
+    height: 1500px;
     background-color: $bgColor;
     position: relative;
 }

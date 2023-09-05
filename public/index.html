@@ -6,7 +6,8 @@
     <meta name="author" content="Вадим Латыпов">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>LTVI</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">
     <script src="https://kit.fontawesome.com/c0c3afc1db.js" crossorigin="anonymous"></script>
 </head>
@@ -20,38 +21,153 @@
         </div>
 
         <div class="header">
-            <a href="#"><p>LTVI</p></a>
+            <a href="/"><p>LTVI</p></a>
             <nav>
-                <a href="#about" class="activeMouse" onclick="toElement('#about')">Обо мне</a>
-                <a href="#stack" class="activeMouse" onclick="toElement('#stack')">Технологии</a>
-                <a href="#experience" class="activeMouse" onclick="toElement('#experience')">Опыт</a>
-                <a href="#portfolio" class="activeMouse" onclick="toElement('#portfolio')">Портфолио</a>
+                <p class="activeMouse" onclick="toElement('#about')">Обо мне</p>
+                <p class="activeMouse" onclick="toElement('#stack')">Технологии</p>
+                <p class="activeMouse" onclick="toElement('#experience')">Опыт</p>
+                <p class="activeMouse" onclick="toElement('#portfolio')">Портфолио</p>
+                <p class="activeMouse" onclick="toElement('#contact')">Контакты</p>
                 <div id="nav-control" class="activeMouse">
-                    <div></div>
-                    <div></div>
+                    <span class="first"></span>
+                    <span class="second"></span>
                 </div>
             </nav>
         </div>
         <div class="title">
             <h1>Латыпов Вадим</h1>
             <h3>WEB | FRONTEND | FULLSTACK разработчик</h3>
-            <p><a href="#about" class="activeMouse" onclick="toElement('#about')">Подробнее <i class="fa-solid fa-arrow-down fa-fade"></i></a></p>
+            <p class="activeMouse" onclick="toElement('#about')">Подробнее <i class="fa-solid fa-arrow-down fa-fade"></i></p>
         </div>
     </header>
 
     <main>
         <div class="container">
-            <p id="about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem doloremque fuga laboriosam culpa fugiat accusantium. Veritatis itaque doloribus earum sint error natus delectus totam architecto quia a, eligendi temporibus voluptatum magnam obcaecati molestiae ab eum nam facere! Cupiditate accusamus adipisci quis perferendis officia modi sit aspernatur culpa, possimus, ut fugit, expedita omnis pariatur veritatis beatae deleniti libero illo asperiores. Iste, praesentium. Cupiditate, corrupti. Quisquam quo fugiat provident labore pariatur hic, assumenda, recusandae deserunt non eos, eveniet molestiae aliquam quidem veritatis ad ipsa odit quos quae nobis eaque quis. Debitis exercitationem quam a, libero excepturi cupiditate et voluptatum soluta ducimus dolores. Ut voluptas adipisci animi et numquam dolorem quas rem eaque ducimus sint! Vitae, quidem corporis mollitia quae magni similique ab eos aut dicta. Illo dolorum tempora voluptatem perferendis exercitationem dolores eaque reiciendis numquam commodi, laboriosam eveniet? Ratione nulla quaerat assumenda soluta magni quasi beatae exercitationem vel aut, perspiciatis in id sed debitis, dicta quos corporis molestiae optio voluptatibus quod. Aut enim optio labore odit dolorum quae, incidunt asperiores autem aliquam reiciendis facere, nam dolore quisquam quaerat eligendi quibusdam adipisci rerum ratione natus corporis cumque numquam maxime sequi. Iure sed blanditiis debitis totam, delectus placeat obcaecati inventore corrupti repellendus. Debitis, rem.</p>
+            <section id="about">
+                <h2>Обо мне</h2>
+                <div class="img-holder"></div>
+                <p>По сегодняшний день продолжаю работать в сфере автоматизации энергосистем (АСУ ТП). Простыми словами, занимаюсь тем же программированием: пишу логику работы оборудования, конфигурирую контроллеры, занимаюсь написанием человеко-машинного интерфейса на благо энергетики, за одним исключением - все это на языках программирования <a href="https://ru.wikipedia.org/wiki/IEC_61131-3" target="_blank" class="activeMouse">МЭК-61113-3</a>.</p>
+                <p>Пару лет назад увлекся автоматизацией рутинных рабочих задач на Python - "затянуло": начал делать скрипты на Python, изучил SQL, написал своего первого телеграм бота на 1000+ строк кода. Позднее начал смотреть в сторону фронтенда: познакомился с разметкой, стилями, JS. Делал простые сайты "для себя" и немного поработал с Django.</p>
+                <p>В один прекрасный день, я понял: "Хочу в IT целиком и полностью!" Недолго думая, решил систематизировать свои знания и набраться новых. Записался на курсы Fullstack разработчика от Георгия Дударя, <span>закончил с отличием</span>, получил <a href="https://itproger.com/view-diplom/77833aa2eb14cf26ed22388bec80d6b8/full-stack" target="_blank" class="activeMouse">диплом</a>.</p><br>
 
-            <p id="stack">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem doloremque fuga laboriosam culpa fugiat accusantium. Veritatis itaque doloribus earum sint error natus delectus totam architecto quia a, eligendi temporibus voluptatum magnam obcaecati molestiae ab eum nam facere! Cupiditate accusamus adipisci quis perferendis officia modi sit aspernatur culpa, possimus, ut fugit, expedita omnis pariatur veritatis beatae deleniti libero illo asperiores. Iste, praesentium. Cupiditate, corrupti. Quisquam quo fugiat provident labore pariatur hic, assumenda, recusandae deserunt non eos, eveniet molestiae aliquam quidem veritatis ad ipsa odit quos quae nobis eaque quis. Debitis exercitationem quam a, libero excepturi cupiditate et voluptatum soluta ducimus dolores. Ut voluptas adipisci animi et numquam dolorem quas rem eaque ducimus sint! Vitae, quidem corporis mollitia quae magni similique ab eos aut dicta. Illo dolorum tempora voluptatem perferendis exercitationem dolores eaque reiciendis numquam commodi, laboriosam eveniet? Ratione nulla quaerat assumenda soluta magni quasi beatae exercitationem vel aut, perspiciatis in id sed debitis, dicta quos corporis molestiae optio voluptatibus quod. Aut enim optio labore odit dolorum quae, incidunt asperiores autem aliquam reiciendis facere, nam dolore quisquam quaerat eligendi quibusdam adipisci rerum ratione natus corporis cumque numquam maxime sequi. Iure sed blanditiis debitis totam, delectus placeat obcaecati inventore corrupti repellendus. Debitis, rem.</p>
+                <p><q><i>Мне 27 лет, и я перехожу в IT. Чем я лучше студента с красным дипломом?</i></q></p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <span><b>Отлично работаю в команде.</b> За моими плечами профессиональный опыт работы более 6 лет в сфере систем автоматизации в разных командах и на различных проектах, бо&#769;льшая часть из которых в международной компании Emerson.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><b>Не боюсь проблем.</b> Проект новый, сложный и нужно реализовать в сжатые сроки? Сталкивался и справлялся с этим регулярно!</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><b>Коммуникабелен.</b> Найти общий язык с менеджером проекта, провести совещание у заказчика, обговорить вопросы по проекту или просто провести деловую встречу - не проблема.</span></li>
+                    <li><i class="fa-solid fa-check"></i> <span><b>Имею безудержное желание учиться.</b> В IT-сфере я постоянно изучаю новые технологии и развиваю навыки.</span></li>
+                </ul>
+            </section>
+
+            <section id="stack">
+                <h2>Технологии</h2>
+                <div class="skill-holder">
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>HTML5 | CSS3</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>адаптивная, семантическая и кроссбраузерная верстка</li>
+                            <li>работаю с препроцессорами SASS/SCSS</li>
+                            <li>использую Flex, Grid, SVG, шаблоны Figma, Photoshop</li>
+                            <li>умею делать анимацию и работать с БЭМ</li>
+                            <li>хорошо знаю Bootstrap</li>
+                        </ul>
+                    </div>
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>JavaScript (ES6+, ES5)</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>пишу на нативном JS и jQuery</li>
+                            <li>использую Babel и AJAX в работе</li>
+                            <li>работал с фреймворком Vue.js, знаком с ReactJS</li>
+                            <li>знаком с прототипами, промисами и генераторами</li>
+                        </ul>
+                    </div>
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>PHP 8+</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>основы, встроенные функции, ООП, API</li>
+                            <li>использую PSR стандарты и Composer, знаком с некоторыми библиотеками</li>
+                            <li>знаком с шаблонами проектирования</li>
+                            <li>выстраивание клиент-серверного взаимодействия, опыт работы с MVC схемой проектирования</li>
+                            <li>работал с Laravel</li>
+                            <li>при необходимости протестирую код на PHPUnit</li>
+                        </ul>
+                    </div>
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>Python 3.8+</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>основы, встроенные функции, ООП, API</li>
+                            <li>пишу скрипты автоматизации рутинных задач</li>
+                            <li>есть опыт разработки телеграм ботов, опыт автоматизации работы с коммутаторами Cisco</li>
+                            <li>немного работал с фреймворком Django</li>
+                            <li>знаком с OpenCV</li>
+                        </ul>
+                    </div>
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>SQL</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>неплохо знаю основы языка (JOIN, GROUP BY, HAVING, подзапросы и т.п.)</li>
+                            <li>имею опыт работы с СУБД MySQL и PhpMyAdmin</li>
+                            <li>знаком и использовал в работе PostgreSQL, SQLite3</li>
+                        </ul>
+                    </div>
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>Автоматизация работы</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>использую сборщики GULP, Webpack</li>
+                            <li>знаю полезные библиотеки NPM (автопрефиксер, минификация, hot-reload)</li>
+                            <li>использую в работе командную строку</li>
+                        </ul>
+                    </div>
+                    <div class="skill activeMouse" onclick="showList(this)">
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            <h3>Сервисы</h3>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </div>
+                        <ul>
+                            <li>Git, GitHub</li>
+                            <li>CMS Wordpress (разработка простых приложений)</li>
+                            <li>контейнеры Docker: создам dockerfile, соберу приложение через docker compose, выгружу на Docker Hub</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience">
+                
+            </section>
         </div>
     </main>
-
+    
     <footer>
         Футер
     </footer>
 
-    <div id="cursor"></div>
+    <div id="cursor" class="show"></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/main.min.js"></script>

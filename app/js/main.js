@@ -8,11 +8,36 @@ $(document).ready(() => {
     parallax();
 
     $(window).scroll(() => {
-        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-            alert("страница прокручена");
+        // здесь можно делать эффекты для блоков
+        // if($(window).scrollTop() == $('#about').offset().top - 100) {
+        //     printText(text_about, $('#about')[0]);
+        // }
+
+
+
+        if($(window).scrollTop() >= ($('#stack').offset().top - ($('#stack').outerHeight() / 2))) {
+            $('#stack .skill div').addClass('active');
+        } 
+        if($(window).scrollTop() < ($('#stack').offset().top - ($(window).height())) || $(window).scrollTop() >= ($('#stack').offset().top + ($('#stack').outerHeight()))) {
+            $('#stack .skill div').removeClass('active');
+            $('#stack .skill').find('ul').slideUp('fast');
+            $('#stack .skill').removeClass('showList');
         }
+
+
+
+        // console.log($(window).scrollTop() + ', ' + ($('#stack').offset().top + ($('#stack').outerHeight())))
+
+        if($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
+            console.log("страница прокручена");
+        }
+        // if($(window).scrollTop() - $(window).height() > 1248) {
+        //     alert('OK')
+        // }
+        // console.log($(window).scrollTop() + ', ' + $(window).scrollTop() - $(window).height())
     });
 })
+
 
 // Курсор
 const cursorMove = () => {
@@ -37,12 +62,14 @@ const cursorMove = () => {
     })
 }
 
+
 // Переход к разделу
 const toElement = (id) => {
     $('html, body').animate({
-        scrollTop: $(id).offset().top
-    }, 2000)
+        scrollTop: ($(id).offset().top - 50)
+    }, 1500)
 }
+
 
 // Параллакс эффект
 const parallax = () => {
@@ -54,29 +81,58 @@ const parallax = () => {
     })
 }
 
+
 // Навигация
 let nav = false;
 
 $('#nav-control').click(() => {
     if(nav) {
-        $('#nav-control div:first-of-type').css({
-            'transform': 'rotate(315deg) translateX(6px)'
+        $('#nav-control .first').css({
+            'transform': 'rotate(315deg) translateX(-6px)'
         });
-        $('#nav-control div:last-of-type').css({
-            'transform': 'rotate(-315deg) translateX(6px)'
-        }, 500);
-        $('header nav a').show('fast');
+        $('#nav-control .second').css({
+            'transform': 'rotate(-315deg) translateX(-6px)'
+        });
+        $('header nav p').show('fast');
     } else {
-        $('#nav-control div:first-of-type').css({
+        $('#nav-control .first').css({
             'transform': 'rotate(0deg) translateX(0px)'
         });
-        $('#nav-control div:last-of-type').css({
+        $('#nav-control .second').css({
             'transform': 'rotate(0deg) translateX(0px)'
-        }, 500);
-        $('header nav a').hide('fast');
+        });
+        $('header nav p').hide('fast');
     }
     nav = !nav;
 })
+
+
+// Показать / скрыть навык
+const showList = (el) => {
+    $(el).find('ul').slideToggle('slow');
+    $(el).toggleClass('showList');
+}
+
+
+
+
+
+
+
+// Самопечатающийся текст
+let text = 'Привет';
+let element = $("#result")[0];
+
+const printText = (text, element) => {
+    if(text.length > 0) {
+        element.innerHTML += text[0];
+        setTimeout(() => {
+            printText(text.slice(1), element); 
+        }, 1);
+    }
+}
+// printText(text, element);
+
 
 
 
