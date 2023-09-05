@@ -13,8 +13,14 @@ $(document).ready(() => {
         //     printText(text_about, $('#about')[0]);
         // }
 
+        // Вывод about
+        if($(window).scrollTop() >= ($('#about').offset().top - ($('#about').outerHeight() * 0.8))) {
+            $('#about .about-text').slideDown('slow');
+        } else {
+            $('#about .about-text').slideUp('slow');
+        }
 
-
+        // Вывод stack
         if($(window).scrollTop() >= ($('#stack').offset().top - ($('#stack').outerHeight() / 2))) {
             $('#stack .skill div').addClass('active');
         } 
