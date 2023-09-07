@@ -26,8 +26,10 @@ $(document).ready(() => {
         } 
         if($(window).scrollTop() < ($('#stack').offset().top - ($(window).height())) || $(window).scrollTop() >= ($('#stack').offset().top + ($('#stack').outerHeight()))) {
             $('#stack .skill div').removeClass('active');
-            $('#stack .skill').find('ul').slideUp('fast');
-            $('#stack .skill').removeClass('showList');
+            setTimeout(() => {
+                $('#stack .skill').find('ul').slideUp('fast');
+                $('#stack .skill').removeClass('showList');
+            }, 1000)
         }
 
 
@@ -37,10 +39,6 @@ $(document).ready(() => {
         if($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
             console.log("страница прокручена");
         }
-        // if($(window).scrollTop() - $(window).height() > 1248) {
-        //     alert('OK')
-        // }
-        // console.log($(window).scrollTop() + ', ' + $(window).scrollTop() - $(window).height())
     });
 })
 
@@ -89,7 +87,7 @@ const parallax = () => {
 
 
 // Навигация
-let nav = false;
+let nav = true;
 
 $('#nav-control').click(() => {
     if(nav) {
@@ -118,6 +116,97 @@ const showList = (el) => {
     $(el).find('ul').slideToggle('slow');
     $(el).toggleClass('showList');
 }
+
+
+// Узнать больше (элемент портфолио)
+let portfolio = [
+    {
+        title: 'portfolio',
+        img: 'portfolio.png',
+        description: 'Сайт-портфолио, на котором Вы сейчас находитесь, является моей визитной карточкой. Написан с использованием таких технологий, как <b>SCSS</b>, <b>jQuery</b>, <b>сборщик GULP</b>, и немного <b>PHP</b> под нужды почты.',
+        link: 'https://ltvi.site'
+    },
+    {
+        title: 'cutdown',
+        img: 'cutdown.png',
+        description: 'Сервис по сокращению ссылок целиком и полностью написан "<b>чистым</b>" кодом, без использования каких-либо библиотек и фреймворков. В основу взят язык <b>PHP</b> и схема проектирования <b>MVC</b>, а также СУБД <b>MySQL</b>.',
+        link: 'https://cutdown.ltvi.site'
+    },
+]
+
+const learnMore = (site) => {
+    portfolio.forEach(el => {
+        if(site == el.title) {
+            $('.learn-more img').attr('src', `img/sites/${el.img}`);
+            $('.learn-more p').html(el.description);
+            $('.learn-more .go-to a').attr('href', el.link);
+        } else {
+            return;
+        }
+    });
+    $('.learn-more').slideDown('slow');
+    $('.mask').fadeIn('fast');
+    if(site == 'portfolio')
+        $('.learn-more .go-to').hie('fast');
+    else {
+        setTimeout(() => {
+            $('.learn-more .go-to').fadeIn('slow');
+        }, 500);
+    }
+    
+}
+
+const closeLearnMore = () => {
+    $('.learn-more .go-to').fadeOut('fast');
+    $('.learn-more').slideUp('slow');
+    $('.mask').fadeOut('fast');
+}
+
+$('.mask').click(() => {
+    closeLearnMore();
+});
+
+$('.learn-more .close').click(() => {
+    closeLearnMore();
+})
+
+
+
+
+
+
+
+
+
+
+// Параллакс для резюме
+let mountain1 = $('#mountain1')[0];
+let mountain2 = $('#mountain2')[0];
+let mountain3 = $('#mountain3')[0];
+let mountain4 = $('#mountain4')[0];
+// $(window).on('mousemove', function(e) {
+//     let x = e.clientX / window.innerWidth;
+//     let y = e.clientY / window.innerHeight;
+//     mountain1.style.transform = 'translate(-' + x * 5 + 'px, -' + y * 5 + 'px)';
+//     mountain2.style.transform = 'translate(-' + x * 10 + 'px, -' + y * 10 + 'px)';
+//     mountain3.style.transform = 'translate(-' + x * 15 + 'px, -' + y * 15 + 'px)';
+//     mountain4.style.transform = 'translate(-' + x * 20 + 'px, -' + y * 20 + 'px)';
+// });
+
+
+
+let bg = document.querySelector('.mouse-parallax-bg');
+window.addEventListener('mousemove', function(e) {
+    let x = e.clientX / window.innerWidth;
+    let y = e.clientY / window.innerHeight;  
+    bg.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
+});
+
+
+
+
+
+
 
 
 
@@ -167,3 +256,122 @@ const printText = (text, element) => {
 //         Высота документа: ${docHeight}
 //         Высота окна: ${winHeight}`)
 // })
+
+
+// $(document).ready(function() {
+//     // MODAL
+//     var modalText = {
+//       discover: {
+//         title: 'ChowNow Discover',
+//         tag: 'FOOD ORDERING PLATFORM.',
+//         detail:
+//           'ChowNow Discover is a platform that lets customers discover new local restaurants and provides business owners with tools to convert first time orders into lifelong diners.',
+//         link: 'https://eat.chownow.com/'
+//       }
+//     };
+  
+//     $('#gallery .button').on('click', function() {
+//       fillModal(this.id);
+//       $('.modal-wrap').addClass('visible');
+//     });
+  
+//     $('.close').on('click', function() {
+//       $('.modal-wrap, #modal .button').removeClass('visible');
+//     });
+  
+//     $('.mask').on('click', function() {
+//       $('.modal-wrap, #modal .button').removeClass('visible');
+//     });
+  
+//     var carousel = $('#carousel'),
+//       slideWidth = 700,
+//       threshold = slideWidth / 3,
+//       dragStart,
+//       dragEnd;
+  
+//     setDimensions();
+  
+//     $('#next').click(function() {
+//       shiftSlide(-1);
+//     });
+//     $('#prev').click(function() {
+//       shiftSlide(1);
+//     });
+  
+//     carousel.on('mousedown', function() {
+//       if (carousel.hasClass('transition')) return;
+//       dragStart = event.pageX;
+//       $(this).on('mousemove', function() {
+//         dragEnd = event.pageX;
+//         $(this).css('transform', 'translateX(' + dragPos() + 'px)');
+//       });
+//       $(document).on('mouseup', function() {
+//         if (dragPos() > threshold) {
+//           return shiftSlide(1);
+//         }
+//         if (dragPos() < -threshold) {
+//           return shiftSlide(-1);
+//         }
+//         shiftSlide(0);
+//       });
+//     });
+  
+//     function setDimensions() {
+//       if (
+//         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+//           navigator.userAgent
+//         )
+//       ) {
+//         slideWidth = $(window).innerWidth();
+//       }
+//       $('.carousel-wrap, .slide').css('width', slideWidth);
+//       $('.modal').css('max-width', slideWidth);
+//       $('#carousel').css('left', slideWidth * -1);
+//     }
+  
+//     function dragPos() {
+//       return dragEnd - dragStart;
+//     }
+  
+//     function shiftSlide(direction) {
+//       if (carousel.hasClass('transition')) return;
+//       dragEnd = dragStart;
+//       $(document).off('mouseup');
+//       carousel
+//         .off('mousemove')
+//         .addClass('transition')
+//         .css('transform', 'translateX(' + direction * slideWidth + 'px)');
+//       setTimeout(function() {
+//         if (direction === 1) {
+//           $('.slide:first').before($('.slide:last'));
+//         } else if (direction === -1) {
+//           $('.slide:last').after($('.slide:first'));
+//         }
+//         carousel.removeClass('transition');
+//         carousel.css('transform', 'translateX(0px)');
+//       }, 700);
+//     }
+  
+//     function fillModal(id) {
+//       $('#modal .title').text(modalText[id].title);
+//       $('#modal .detail').text(modalText[id].detail);
+//       $('#modal .tag').text(modalText[id].tag);
+//       if (modalText[id].link)
+//         $('#modal .button')
+//           .addClass('visible')
+//           .parent()
+//           .attr('href', modalText[id].link);
+  
+//       $.each($('#modal li'), function(index, value) {
+//         $(this).text(modalText[id].bullets[index]);
+//       });
+//       $.each($('#modal .slide'), function(index, value) {
+//         $(this).css({
+//           background:
+//             "url('img/slides/" + id + '-' + index + ".jpg') center center/cover",
+//           backgroundSize: 'cover'
+//         });
+//       });
+//     }
+//   });
+  
