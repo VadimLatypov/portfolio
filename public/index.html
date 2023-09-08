@@ -57,8 +57,12 @@
                 <h2>Технологии</h2>
                 <div class="skill-holder">
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <!-- <i class="fa-solid fa-check"></i> -->
+                            <div class="icon-holder">
+                                <img src="img/icon/html5.png" alt="Icon HTML">
+                                <img src="img/icon/css3.png" alt="Icon CSS">
+                            </div>
                             <h3>HTML5 | CSS3</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -71,8 +75,10 @@
                         </ul>
                     </div>
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <div class="icon-holder">
+                                <img src="img/icon/js.png" alt="Icon JS">
+                            </div>
                             <h3>JavaScript (ES6+, ES5)</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -84,8 +90,10 @@
                         </ul>
                     </div>
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <div class="icon-holder">
+                                <img src="img/icon/php.png" alt="Icon PHP">
+                            </div>
                             <h3>PHP 8+</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -99,8 +107,10 @@
                         </ul>
                     </div>
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <div class="icon-holder">
+                                <img src="img/icon/python.png" alt="Icon Python">
+                            </div>
                             <h3>Python 3.8+</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -113,8 +123,10 @@
                         </ul>
                     </div>
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <div class="icon-holder">
+                                <img src="img/icon/sql.png" alt="Icon SQL">
+                            </div>
                             <h3>SQL</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -125,8 +137,11 @@
                         </ul>
                     </div>
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <div class="icon-holder">
+                                <img src="img/icon/gulp.png" alt="Icon GULP">
+                                <img src="img/icon/webpack.png" alt="Icon Webpack">
+                            </div>
                             <h3>Автоматизация работы</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -137,8 +152,11 @@
                         </ul>
                     </div>
                     <div class="skill activeMouse" onclick="showList(this)">
-                        <div>
-                            <i class="fa-solid fa-check"></i>
+                        <div class="string-skill">
+                            <div class="icon-holder">
+                                <img src="img/icon/git.png" alt="Icon GIT">
+                                <img src="img/icon/docker.png" alt="Icon Docker">
+                            </div>
                             <h3>Сервисы</h3>
                             <i class="fa-solid fa-arrow-down"></i>
                         </div>
@@ -210,7 +228,7 @@
                     <div class="mask"></div>
                     <div class="learn-more">
                         <button type="button" class="activeMouse close">Закрыть <i class="fa-solid fa-xmark"></i></button>
-                        <img src="img/sites/dummy" alt="Скрин сайта">
+                        <img src="img/sites/portfolio.png" alt="Скрин сайта">
                         <p>dummy</p>
                         <button type="button" class="activeMouse go-to"><a href="dummy" target="_blank">Перейти</a></button>
                     </div>
@@ -218,33 +236,44 @@
             </section>
 
             <section id="contact">
-                <h2>Напишите мне</h2>
-                <div class="form">
-                    <form action="" method="post" class="activeMouse">
-                        <div>
+                <h2>Контакты</h2>
+                <div>
+                    <div class="form">
+                        <p>Если у Вас есть вопросы, просто напишите мне <i class="fa-solid fa-reply fa-beat"></i></p>
+                        <form class="activeMouse">
                             <input type="text" name="name" placeholder="Имя" required>
                             <input type="text" name="email" placeholder="Email" required>
-                        </div>
-                        <textarea name="message" placeholder="Ваше сообщение"></textarea>
-                        <button type="submit">Отправить</button>
-                    </form>
+                            <textarea name="message" placeholder="Ваше сообщение"></textarea>
+
+                            <div id="error-block"></div>
+                            <div id="success-block"></div>
+
+                            <button type="button" id="message_send">Отправить</button>
+                        </form>
+                    </div>
+                    <div class="img-holder">
+                        <img src="img/CV.jpeg" alt="CV">
+                    </div>
                 </div>
             </section>
         </div>
     </main>
     <footer>
-        <h2>Футер</h2>
-        <div>
-            <img src="img/CV.png" alt="CV">
-        </div>
-        <div class="mouse-parallax">
-            <div class="mouse-parallax-bg"></div>
+        <div class="container">
+            <div class="rights">
+                <a href="/" class="activeMouse"><img src="img/favicon.ico"></a>
+                <p>Латыпов Вадим | Сайт-портфолио<br>2023 Все права защищены &copy;</p>
+            </div>
+            <div class="social">
+                <a href="https://github.com/VadimLatypov" target="_blank"><i class="fa-brands fa-square-github activeMouse"></i></a>
+            </div>
         </div>
     </footer>
 
     <div id="cursor" class="show"></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/ajax.min.js"></script>
     <script src="js/main.min.js"></script>
 </body>
 </html>

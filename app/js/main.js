@@ -78,8 +78,8 @@ const toElement = (id) => {
 // Параллакс эффект
 const parallax = () => {
     $(window).scroll(() => {
-        $('#mountain1').css('transform', `translateY(-${scrollY * 0.3}px)`);
-        $('#mountain2').css('transform', `translateY(-${scrollY * 0.5}px)`);
+        $('#mountain1').css('transform', `translateY(-${scrollY * 0.1}px)`);
+        $('#mountain2').css('transform', `translateY(-${scrollY * 0.3}px)`);
         $('#mountain3').css('transform', `translateY(-${scrollY * 0.7}px)`);
         $('#mountain4').css('transform', `translateY(-${scrollY * 1}px)`);
     })
@@ -123,7 +123,7 @@ let portfolio = [
     {
         title: 'portfolio',
         img: 'portfolio.png',
-        description: 'Сайт-портфолио, на котором Вы сейчас находитесь, является моей визитной карточкой. Написан с использованием таких технологий, как <b>SCSS</b>, <b>jQuery</b>, <b>сборщик GULP</b>, и немного <b>PHP</b> под нужды почты.',
+        description: 'Сайт-портфолио, на котором Вы сейчас находитесь, является моей визитной карточкой. Написан с использованием таких технологий, как <b>SCSS</b>, <b>jQuery</b>, <b>сборщик GULP</b>, и немного <b>AJAX+PHP</b> под нужды почты.',
         link: 'https://ltvi.site'
     },
     {
@@ -140,12 +140,12 @@ const learnMore = (site) => {
             $('.learn-more img').attr('src', `img/sites/${el.img}`);
             $('.learn-more p').html(el.description);
             $('.learn-more .go-to a').attr('href', el.link);
+            $('.learn-more').slideDown('slow');
+            $('.mask').fadeIn('fast');
         } else {
             return;
         }
     });
-    $('.learn-more').slideDown('slow');
-    $('.mask').fadeIn('fast');
     if(site == 'portfolio')
         $('.learn-more .go-to').hie('fast');
     else {
@@ -176,31 +176,6 @@ $('.learn-more .close').click(() => {
 
 
 
-
-
-
-// Параллакс для резюме
-let mountain1 = $('#mountain1')[0];
-let mountain2 = $('#mountain2')[0];
-let mountain3 = $('#mountain3')[0];
-let mountain4 = $('#mountain4')[0];
-// $(window).on('mousemove', function(e) {
-//     let x = e.clientX / window.innerWidth;
-//     let y = e.clientY / window.innerHeight;
-//     mountain1.style.transform = 'translate(-' + x * 5 + 'px, -' + y * 5 + 'px)';
-//     mountain2.style.transform = 'translate(-' + x * 10 + 'px, -' + y * 10 + 'px)';
-//     mountain3.style.transform = 'translate(-' + x * 15 + 'px, -' + y * 15 + 'px)';
-//     mountain4.style.transform = 'translate(-' + x * 20 + 'px, -' + y * 20 + 'px)';
-// });
-
-
-
-let bg = document.querySelector('.mouse-parallax-bg');
-window.addEventListener('mousemove', function(e) {
-    let x = e.clientX / window.innerWidth;
-    let y = e.clientY / window.innerHeight;  
-    bg.style.transform = 'translate(-' + x * 50 + 'px, -' + y * 50 + 'px)';
-});
 
 
 

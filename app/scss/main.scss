@@ -59,7 +59,7 @@ button {
 h2 {
     text-transform: uppercase;
     font-size: 1.8em;
-    font-weight: 500;
+    font-weight: 100;
     margin: 50px 0;
     letter-spacing: 7px;
 }
@@ -319,11 +319,22 @@ main {
                         border-bottom: 1px solid $brightBlue;
                     }
 
-                    div {
+                    .string-skill {
                         @extend %flexbox;
                         margin: 0 10px;
                         opacity: 0.4;
                         transform: translate(120%, 0px);
+
+                        .icon-holder {
+                            width: 200px;
+                            height: 48px;
+                            margin: 10px 0;
+
+                            img {
+                                height: 48px;
+                                transition: all 500ms ease;
+                            }
+                        }
 
                         h3 {
                             font-size: 1.2em;
@@ -332,6 +343,9 @@ main {
                         }
 
                         i:last-of-type {
+                            width: 50px;
+                            margin-left: 150px;
+                            text-align: end;
                             opacity: 0;
                             transition: all 600ms ease;
                         }
@@ -357,15 +371,23 @@ main {
                     
                     ul {
                         @extend %TextForMain;
-                        margin-left: 150px;
+                        margin-left: 250px;
                         margin-bottom: 20px;
                         display: none;
                     }
 
                     &.showList {
 
-                        div {
+                        .string-skill {
                             opacity: 1;
+
+                            .icon-holder {
+                                width: 200px;
+
+                                img {
+                                    height: 64px;
+                                }
+                            }
 
                             i:last-of-type {
                                 opacity: 1;
@@ -694,7 +716,7 @@ main {
                     img {width: 100%}
 
                     p {
-                        padding: 0 10px 60px;
+                        padding: 0 10px 50px;
                         font-size: 0.9em;
 
                         b {color: $brightBlue;}
@@ -703,8 +725,10 @@ main {
                     .go-to {
                         display: none;
                         margin: 0 auto;
-                        width: 100px;
-                        height: 40px;
+                        width: 80px;
+                        height: 30px;
+                        font-size: 0.9em;
+                        text-transform: none;
                         border: 3px solid $brightBlue;
                         transition: all 500ms ease;
                         cursor: pointer;
@@ -732,58 +756,94 @@ main {
                 margin-bottom: 30px;
             }
 
-            .form {
-                width: 700px;
-                margin: 0 auto;
-                box-sizing: border-box;
+            > div {
+                @extend %flexbox;
+                // align-items: start;
 
-                form {
-                    width: 100%;
+                .form {
+                    width: 600px;
+                    // margin: 0 auto;
+                    box-sizing: border-box;
+                    justify-content: start;
 
-                    > div {
-                        @extend %flexbox;
-                    }
+                    p i {color: $brightBlue}
     
-                    input,
-                    textarea {
+                    form {
                         width: 100%;
-                        padding: 7px 10px;
-                        border: 0;
-                        border-radius: 5px;
-                        margin-bottom: 10px;
-                        font-family: 'JetBrains Mono', monospace;
-                        font-size: 1em;
-                        font-weight: 300;
-                        background-color: $textColor;
-                        color: $bgColor;
-                        box-sizing: border-box;
-                    }
-
-                    input:first-of-type {
-                        margin-right: 10px;
-                    }
-    
-                    textarea {
-                        height: 150px;
-                        resize: none;
-                    }
-    
-                    button {
-                        display: block;
-                        margin: 0 auto;
-                        width: 120px;
-                        height: 40px;
-                        border: 3px solid $brightBlue;
-                        border-radius: 5px;
-                        color: $black;
-                        transition: all 500ms ease;
-                        cursor: pointer;
-    
-                        &:hover {
-                            @extend %shadowBlue;
-                            background-color: $brightBlue;
-                            color: $textColor;
+                        margin-top: 20px;
+        
+                        input,
+                        textarea {
+                            width: 100%;
+                            padding: 7px 10px;
+                            border: 0;
+                            border-radius: 5px;
+                            margin-bottom: 10px;
+                            font-family: 'JetBrains Mono', monospace;
+                            font-size: 1em;
+                            font-weight: 300;
+                            background-color: $textColor;
+                            color: $bgColor;
+                            box-sizing: border-box;
                         }
+    
+                        input:first-of-type {
+                            margin-right: 10px;
+                        }
+        
+                        textarea {
+                            height: 200px;
+                            resize: none;
+                        }
+
+                        #error-block {
+                            margin-bottom: 10px;
+                            color: red;
+                        }
+
+                        #success-block {
+                            margin-bottom: 10px;
+                            color: #03c300;
+                        }
+        
+                        button {
+                            display: block;
+                            margin: 0 auto;
+                            width: 120px;
+                            height: 40px;
+                            border: 3px solid $brightBlue;
+                            border-radius: 5px;
+                            color: $black;
+                            transition: all 500ms ease;
+                            cursor: pointer;
+        
+                            &:hover {
+                                @extend %shadowBlue;
+                                background-color: $brightBlue;
+                                color: $textColor;
+                            }
+                        }
+                    }
+                }
+    
+                .img-holder {
+                    width: 200px;
+                    padding: 0 200px;
+                    margin-bottom: 200px;
+                    margin-right: 100px;
+            
+                    img {
+                        width: 100%;
+                        // filter: blur(1px);
+                        transform: rotate(-20deg) skew(50deg) translate(-70px, 50px);
+                        box-shadow: -50px 50px 5px 0px rgba(0,0,0,0.75);
+                        transition: all 500ms ease;
+                    }
+            
+                    &:hover img {
+                        // filter: blur(0px);
+                        transform: rotate(00deg) skew(0deg) translate(50px, 100px) scale(2);
+                        box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
                     }
                 }
             }
@@ -795,42 +855,40 @@ main {
 // Футер
 footer {
     width: 100%;
-    height: 1500px;
-    background-color: $bgColor;
+    padding: 100px;
+    box-sizing: border-box;
+    background-color: $blue;
     position: relative;
 
-    div {
-        width: 300px;
-        padding: 0 150px;
-        margin: 0 auto 200px;
+    .container {
+        @extend %flexbox;
 
-        img {
-            width: 100%;
-            filter: blur(1px);
-            transform: rotate(-20deg) skew(62deg) translate(0px,0px);
-            box-shadow: -100px 50px 5px 0px rgba(0,0,0,0.75);
+        .rights {
+            @extend %flexbox;
+            width: 350px;
+
+            img {
+                width: 50px;
+                float: left;
+            }
+
+            p {
+                font-size: 0.9em;
+                line-height: 25px;
+            }
+        }
+
+        .social i {
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
             transition: all 500ms ease;
-        }
+            cursor: pointer;
 
-        &:hover img {
-            filter: blur(0px);
-            transform: rotate(00deg) skew(0deg) translate(0px,0px);
-            box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
-        }
-    }
-
-    .mouse-parallax {
-        height: 500px;
-        width: 500px;
-        position: relative;
-        overflow: hidden;
-
-        .mouse-parallax-bg {
-            position: absolute;
-            background: url('/img/CV.png') center center no-repeat;
-            background-size: cover;
-            width: 110%;
-            height: 110%;
+            &:hover {
+                transform: scale(1.2);
+                color: $black;
+            }
         }
     }
 }
