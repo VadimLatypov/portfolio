@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="Description" content="Название">
+    <meta name="Description" content="Личный сайт-портфолио">
     <meta name="author" content="Вадим Латыпов">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/c0c3afc1db.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header id="title">
         <div class="parallax">
             <div id="mountain1" data-speed="2"></div>
             <div id="mountain2" data-speed="5"></div>
@@ -39,6 +39,14 @@
             <h3>WEB | FRONTEND | FULLSTACK разработчик</h3>
             <p class="activeMouse" onclick="toElement('#about')">Подробнее <i class="fa-solid fa-arrow-down fa-fade"></i></p>
         </div>
+        <div class="vertical-navigation">
+            <div class="round activeMouse title" onclick="toElement('#title')" title="На главную"></div>
+            <div class="round activeMouse about" onclick="toElement('#about')" title="Обо мне"></div>
+            <div class="round activeMouse stack" onclick="toElement('#stack')" title="Технологии"></div>
+            <div class="round activeMouse experience" onclick="toElement('#experience')" title="На главную"></div>
+            <div class="round activeMouse portfolio" onclick="toElement('#portfolio')" title="Портфолио"></div>
+            <div class="round activeMouse contact" onclick="toElement('#contact')" title="Контакты"></div>
+        </div>
     </header>
 
     <main>
@@ -58,7 +66,6 @@
                 <div class="skill-holder">
                     <div class="skill activeMouse" onclick="showList(this)">
                         <div class="string-skill">
-                            <!-- <i class="fa-solid fa-check"></i> -->
                             <div class="icon-holder">
                                 <img src="img/icon/html5.png" alt="Icon HTML">
                                 <img src="img/icon/css3.png" alt="Icon CSS">
@@ -213,16 +220,8 @@
                         <button onclick="learnMore('cutdown')">Узнать больше</button>
                     </div>
                     <div class="card activeMouse">
-                        <div class="preview">dummy</div>
-                        <button onclick="learnMore('впиши сюда сайт')">Узнать больше</button>
-                    </div>
-                    <div class="card activeMouse">
-                        <div class="preview">dummy</div>
-                        <button onclick="learnMore('впиши сюда сайт')">Узнать больше</button>
-                    </div>
-                    <div class="card activeMouse">
-                        <div class="preview">dummy</div>
-                        <button onclick="learnMore('впиши сюда сайт')">Узнать больше</button>
+                        <div class="preview">СКОРО ПОЯВИТСЯ</div>
+                        <button onclick="learnMore('название поддомена')">Узнать больше</button>
                     </div>
 
                     <div class="mask"></div>
@@ -259,6 +258,9 @@
         </div>
     </main>
     <footer>
+        <div class="arrow-up activeMouse" onclick="toElement('#title')">
+            <i class="fa-regular fa-circle-up"></i>
+        </div>
         <div class="container">
             <div class="rights">
                 <a href="/" class="activeMouse"><img src="img/favicon.ico"></a>

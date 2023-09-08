@@ -174,6 +174,7 @@ header {
         nav {
             @extend %flexbox;
             position: fixed;
+            top: 25px;
             right: 25px;
             z-index: 120;
             
@@ -242,6 +243,28 @@ header {
             }
         }
     }
+
+    .vertical-navigation {
+        display: none;
+        position: fixed;
+        top: 100px;
+        left: 25px;
+        height: 60vh;
+        width: 1px;
+        background-color: $black;
+        z-index: 800;
+
+        div {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            position: relative;
+            right: 6px;
+            border: 1px solid $black;
+            cursor: pointer;
+            background-color: $bgColor;
+        }
+    }
 }
 
 
@@ -256,7 +279,7 @@ main {
         #about {
             min-height: 550px;
             margin: 50px 10px 100px;
-            // height: 100vh;
+            height: 100vh;
 
             .img-holder {
                 width: 50%;
@@ -492,11 +515,8 @@ main {
                             }
 
                             &:hover {
-                                background-color: #0000007b;
-                                // -webkit-box-shadow: 5px 5px 15px 2px rgba(0,0,0,0.5);
-                                // -moz-box-shadow: 5px 5px 15px 2px rgba(0,0,0,0.5);
-                                // box-shadow: 5px 5px 15px 2px rgba(0,0,0,0.5);
                                 @extend %shadowBlue;
+                                background-color: #0000007b;
                                 transform: scale(1.2) rotate(0deg) translate(30px, 20px);
                             }
                         }
@@ -533,8 +553,8 @@ main {
                             }
 
                             &:hover {
-                                background-color: #0000007b;
                                 @extend %shadowBlue;
+                                background-color: #0000007b;
                                 transform: scale(1.2) rotate(0deg) translate(-30px, 20px);
                                 z-index: 55;
                             }
@@ -572,8 +592,8 @@ main {
                             }
 
                             &:hover {
-                                background-color: #0000007b;
                                 @extend %shadowBlue;
+                                background-color: #0000007b;
                                 transform: scale(1.2) rotate(0deg) translate(-15px, -30px);
                             }
                         }
@@ -604,7 +624,7 @@ main {
 
         #portfolio {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
 
             h2 {
                 margin-top: 0;
@@ -758,11 +778,9 @@ main {
 
             > div {
                 @extend %flexbox;
-                // align-items: start;
 
                 .form {
                     width: 600px;
-                    // margin: 0 auto;
                     box-sizing: border-box;
                     justify-content: start;
 
@@ -834,14 +852,12 @@ main {
             
                     img {
                         width: 100%;
-                        // filter: blur(1px);
                         transform: rotate(-20deg) skew(50deg) translate(-70px, 50px);
                         box-shadow: -50px 50px 5px 0px rgba(0,0,0,0.75);
                         transition: all 500ms ease;
                     }
             
                     &:hover img {
-                        // filter: blur(0px);
                         transform: rotate(00deg) skew(0deg) translate(50px, 100px) scale(2);
                         box-shadow: -5px 5px 5px 0px rgba(0,0,0,0.75);
                     }
@@ -855,10 +871,23 @@ main {
 // Футер
 footer {
     width: 100%;
-    padding: 100px;
+    padding: 50px;
     box-sizing: border-box;
     background-color: $blue;
     position: relative;
+
+    .arrow-up {
+        display: block;
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        position: absolute;
+        top: -75px;
+        right: 25px;
+        margin: 0 auto;
+        z-index: 500;
+        cursor: pointer;
+    }
 
     .container {
         @extend %flexbox;

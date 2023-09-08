@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    console.log('Сайт запущен!!!');
+    let arr_offset = ['title', 'about', 'stack', 'experience', 'portfolio', 'contact'];
 
     // Запуск курсора
     cursorMove();
@@ -7,11 +7,26 @@ $(document).ready(() => {
     // Параллакс
     parallax();
 
+    // Вертикальная навигация (разметка)
+    for (let i = 0; i < arr_offset.length; i++) {
+        let offset_top = $(`#${arr_offset[i]}`).offset().top / $(document).height() * 100;
+        $(`.vertical-navigation .${arr_offset[i]}`).css({
+            'top': offset_top + '%'
+        })
+        if($(window).scrollTop() >= $(`#${arr_offset[i]}`).offset().top) {
+            $(`.vertical-navigation .${arr_offset[i]}`).css({
+                'background-color': '#0066ff'
+            })
+        }
+    }
+
     $(window).scroll(() => {
-        // здесь можно делать эффекты для блоков
-        // if($(window).scrollTop() == $('#about').offset().top - 100) {
-        //     printText(text_about, $('#about')[0]);
-        // }
+        // Отображение вертикальной навигации
+        if($(window).scrollTop() >= ($('#about').offset().top - ($('#about').outerHeight() * 0.5))) {
+            $('.vertical-navigation').slideDown('fast');
+        } else {
+            $('.vertical-navigation').slideUp('fast');
+        }
 
         // Вывод about
         if($(window).scrollTop() >= ($('#about').offset().top - ($('#about').outerHeight() * 0.8))) {
@@ -32,12 +47,13 @@ $(document).ready(() => {
             }, 1000)
         }
 
-
-
-        // console.log($(window).scrollTop() + ', ' + ($('#stack').offset().top + ($('#stack').outerHeight())))
-
-        if($(window).scrollTop() >= $(document).height() - $(window).height() - 1) {
-            console.log("страница прокручена");
+        // Вертикальная навигация (заливка)
+        for (let i = 0; i < arr_offset.length; i++) {
+            if($(window).scrollTop() >= ($(`#${arr_offset[i]}`).offset().top - 100)) {
+                $(`.vertical-navigation .${arr_offset[i]}`).css('background-color', '#0066ff')
+            } else if($(window).scrollTop() < $(`#${arr_offset[i]}`).offset().top) {
+                $(`.vertical-navigation .${arr_offset[i]}`).css('background-color', '#222')
+            }
         }
     });
 })
@@ -118,18 +134,18 @@ const showList = (el) => {
 }
 
 
-// Узнать больше (элемент портфолио)
+// Окно детального просмотра сайтов портфолио
 let portfolio = [
     {
         title: 'portfolio',
         img: 'portfolio.png',
-        description: 'Сайт-портфолио, на котором Вы сейчас находитесь, является моей визитной карточкой. Написан с использованием таких технологий, как <b>SCSS</b>, <b>jQuery</b>, <b>сборщик GULP</b>, и немного <b>AJAX+PHP</b> под нужды почты.',
+        description: 'Сайт-портфолио, на котором Вы сейчас находитесь, является моей визитной карточкой. Написан с использованием таких технологий, как <b>SCSS</b>, <b>jQuery</b>, <b>сборщик GULP</b> с основными библиотеками, и немного <b>AJAX+PHP</b> под нужды почты.',
         link: 'https://ltvi.site'
     },
     {
         title: 'cutdown',
         img: 'cutdown.png',
-        description: 'Сервис по сокращению ссылок целиком и полностью написан "<b>чистым</b>" кодом, без использования каких-либо библиотек и фреймворков. В основу взят язык <b>PHP</b> и схема проектирования <b>MVC</b>, а также СУБД <b>MySQL</b>.',
+        description: 'Сервис по сокращению ссылок целиком и полностью написан "<b>чистым</b>" кодом, без использования каких-либо библиотек и фреймворков. В основу взят язык <b>PHP</b> и схема проектирования <b>MVC</b>, а также СУБД <b>MySQL</b>. Содержит систему регистрации, авторизации для удобства пользователя, а также обратную связь через библиотеку PHPMailer.',
         link: 'https://cutdown.ltvi.site'
     },
 ]
@@ -169,184 +185,3 @@ $('.mask').click(() => {
 $('.learn-more .close').click(() => {
     closeLearnMore();
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Самопечатающийся текст
-let text = 'Привет';
-let element = $("#result")[0];
-
-const printText = (text, element) => {
-    if(text.length > 0) {
-        element.innerHTML += text[0];
-        setTimeout(() => {
-            printText(text.slice(1), element); 
-        }, 1);
-    }
-}
-// printText(text, element);
-
-
-
-
-
-// Пример скролла
-// $(window).scroll(() => {
-//     let scroll_top = scrollY
-//     let el = $('#about').offset().top
-//     let docHeight = $(document).height()
-//     let winHeight = $(window).height()
-
-//     // Пример применения свойств
-//     // if(scroll_top >= el) {
-//     //     $('#about').css({
-//     //         'color': 'red'
-//     //     })
-//     // } 
-//     // if(scroll_top < el) {
-//     //     $('#about').css({
-//     //         'color': '#ededed'
-//     //     })
-//     // }
-
-//     console.log(`Скрол от начала страницы: ${scroll_top}\n
-//         Положение элемента: ${el}\n
-//         Высота документа: ${docHeight}
-//         Высота окна: ${winHeight}`)
-// })
-
-
-// $(document).ready(function() {
-//     // MODAL
-//     var modalText = {
-//       discover: {
-//         title: 'ChowNow Discover',
-//         tag: 'FOOD ORDERING PLATFORM.',
-//         detail:
-//           'ChowNow Discover is a platform that lets customers discover new local restaurants and provides business owners with tools to convert first time orders into lifelong diners.',
-//         link: 'https://eat.chownow.com/'
-//       }
-//     };
-  
-//     $('#gallery .button').on('click', function() {
-//       fillModal(this.id);
-//       $('.modal-wrap').addClass('visible');
-//     });
-  
-//     $('.close').on('click', function() {
-//       $('.modal-wrap, #modal .button').removeClass('visible');
-//     });
-  
-//     $('.mask').on('click', function() {
-//       $('.modal-wrap, #modal .button').removeClass('visible');
-//     });
-  
-//     var carousel = $('#carousel'),
-//       slideWidth = 700,
-//       threshold = slideWidth / 3,
-//       dragStart,
-//       dragEnd;
-  
-//     setDimensions();
-  
-//     $('#next').click(function() {
-//       shiftSlide(-1);
-//     });
-//     $('#prev').click(function() {
-//       shiftSlide(1);
-//     });
-  
-//     carousel.on('mousedown', function() {
-//       if (carousel.hasClass('transition')) return;
-//       dragStart = event.pageX;
-//       $(this).on('mousemove', function() {
-//         dragEnd = event.pageX;
-//         $(this).css('transform', 'translateX(' + dragPos() + 'px)');
-//       });
-//       $(document).on('mouseup', function() {
-//         if (dragPos() > threshold) {
-//           return shiftSlide(1);
-//         }
-//         if (dragPos() < -threshold) {
-//           return shiftSlide(-1);
-//         }
-//         shiftSlide(0);
-//       });
-//     });
-  
-//     function setDimensions() {
-//       if (
-//         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-//           navigator.userAgent
-//         )
-//       ) {
-//         slideWidth = $(window).innerWidth();
-//       }
-//       $('.carousel-wrap, .slide').css('width', slideWidth);
-//       $('.modal').css('max-width', slideWidth);
-//       $('#carousel').css('left', slideWidth * -1);
-//     }
-  
-//     function dragPos() {
-//       return dragEnd - dragStart;
-//     }
-  
-//     function shiftSlide(direction) {
-//       if (carousel.hasClass('transition')) return;
-//       dragEnd = dragStart;
-//       $(document).off('mouseup');
-//       carousel
-//         .off('mousemove')
-//         .addClass('transition')
-//         .css('transform', 'translateX(' + direction * slideWidth + 'px)');
-//       setTimeout(function() {
-//         if (direction === 1) {
-//           $('.slide:first').before($('.slide:last'));
-//         } else if (direction === -1) {
-//           $('.slide:last').after($('.slide:first'));
-//         }
-//         carousel.removeClass('transition');
-//         carousel.css('transform', 'translateX(0px)');
-//       }, 700);
-//     }
-  
-//     function fillModal(id) {
-//       $('#modal .title').text(modalText[id].title);
-//       $('#modal .detail').text(modalText[id].detail);
-//       $('#modal .tag').text(modalText[id].tag);
-//       if (modalText[id].link)
-//         $('#modal .button')
-//           .addClass('visible')
-//           .parent()
-//           .attr('href', modalText[id].link);
-  
-//       $.each($('#modal li'), function(index, value) {
-//         $(this).text(modalText[id].bullets[index]);
-//       });
-//       $.each($('#modal .slide'), function(index, value) {
-//         $(this).css({
-//           background:
-//             "url('img/slides/" + id + '-' + index + ".jpg') center center/cover",
-//           backgroundSize: 'cover'
-//         });
-//       });
-//     }
-//   });
-  
