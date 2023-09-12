@@ -5,7 +5,46 @@ $(document).ready(() => {
     cursorMove();
 
     // Параллакс
-    parallax();
+    if($(window).width() >= '650') {
+        parallax();
+    }
+
+    // Слайдер (только мобильные устройства)
+    let position = 0;
+    let outer_width = 0
+    if($(window).width() < '820' && $(window).width() >= '670') {
+        outer_width = 2500;
+    } else if($(window).width() >= '400' && $(window).width() < '670') {
+        outer_width = 1750;
+    } else if($(window).width() < '400') {
+        outer_width = 1400;
+    }
+
+    $('#slider-mobile .prev-slide button').click(() => {
+        console.log('prev');
+        position += $('#slider-mobile .window-slide').width();
+        $('#slider-mobile .slide-holder').css({
+            'transform': `translateX(${position}px)`
+        });
+        if(position > 0) {
+            $('#slider-mobile .slide-holder').css({
+                'transform': `translateX(-${outer_width}px)`
+            });
+            position = -outer_width;
+        }
+    });
+    $('#slider-mobile .next-slide button').click(() => { 
+        position -= $('#slider-mobile .window-slide').width();
+        $('#slider-mobile .slide-holder').css({
+            'transform': `translateX(${position}px)`
+        })
+        if(position < -outer_width) {
+            $('#slider-mobile .slide-holder').css({
+                'transform': `translateX(0px)`
+            });
+            position = 0;
+        }
+    });
 
     // Вертикальная навигация (разметка)
     for (let i = 0; i < arr_offset.length; i++) {
@@ -20,6 +59,7 @@ $(document).ready(() => {
         }
     }
 
+    // Эффекты скролла
     $(window).scroll(() => {
         // Отображение вертикальной навигации
         if($(window).scrollTop() >= ($('#about').offset().top - ($('#about').outerHeight() * 0.5))) {
@@ -113,7 +153,14 @@ $('#nav-control').click(() => {
         $('#nav-control .second').css({
             'transform': 'rotate(-315deg) translateX(-6px)'
         });
-        $('header nav p').show('fast');
+
+        if($(window).width() >= '650')
+            $('header nav p').show('fast');
+        else {
+            $('.nav-mobile').show('slow');
+            $('#title .header a').slideUp('fast');
+            $('header .header nav').css('transform', 'translateY(-260px)')
+        }
     } else {
         $('#nav-control .first').css({
             'transform': 'rotate(0deg) translateX(0px)'
@@ -121,7 +168,14 @@ $('#nav-control').click(() => {
         $('#nav-control .second').css({
             'transform': 'rotate(0deg) translateX(0px)'
         });
-        $('header nav p').hide('fast');
+
+        if($(window).width() >= '650')
+            $('header nav p').hide('fast');
+        else {
+            $('.nav-mobile').hide('slow');
+            $('#title .header a').slideDown('fast');
+            $('header .header nav').css('transform', 'translateY(0px)')
+        }
     }
     nav = !nav;
 })

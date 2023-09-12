@@ -1,0 +1,6 @@
+@mixin bgMountain {
+    @media (max-width: 1350px) {
+        background-size: cover;
+        background-position: center center;
+    }
+}

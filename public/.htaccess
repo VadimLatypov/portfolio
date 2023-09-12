@@ -1,12 +1,8 @@
 ServerSignature Off
 AddDefaultCharset UTF-8
 
-# Options -MultiViews
-
-# RewriteEngine on
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_FILENAME}\.html -f
-# RewriteRule ^(.*)$ $1.html
+RewriteEngine On
+RewriteRule ^index.html$ https://ltvi.site/ [R=301,L]
 
 AddType image/svg+xml svg svgz
 AddEncoding gzip svgz

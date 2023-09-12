@@ -6,20 +6,29 @@
     <meta name="author" content="Вадим Латыпов">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="canonical" href="https://ltvi.site">
     <title>LTVI</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="CSS/slick.css">
     <script src="https://kit.fontawesome.com/c0c3afc1db.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header id="title">
-        <div class="parallax">
-            <div id="mountain1" data-speed="2"></div>
-            <div id="mountain2" data-speed="5"></div>
-            <div id="mountain3" data-speed="11"></div>
-            <div id="mountain4" data-speed="16"></div>
+        <div class="nav-mobile">
+            <p class="logo-mobile">LTVI</p>
+            <p onclick="toElement('#about')">Обо мне</p>
+            <p onclick="toElement('#stack')">Технологии</p>
+            <p onclick="toElement('#experience')">Опыт</p>
+            <p onclick="toElement('#portfolio')">Портфолио</p>
+            <p onclick="toElement('#contact')">Контакты</p>
         </div>
-
+        <div class="parallax">
+            <div id="mountain1"></div>
+            <div id="mountain2"></div>
+            <div id="mountain3"></div>
+            <div id="mountain4"></div>
+        </div>
         <div class="header">
             <a href="/"><p>LTVI</p></a>
             <nav>
@@ -177,7 +186,7 @@
             </section>
 
             <section id="experience">
-                <p><q><i>Мне 27 лет,<br>и я перехожу в IT.<br>Чем я <b>лучше</b><br>студента<br>с красным<br>дипломом?</i></q></p>
+                <p><q><i>Мне 27 лет, <br>и я перехожу в IT. <br>Чем я <b>лучше</b> <br>студента <br>с красным <br>дипломом?</i></q></p>
                 <div class="go-to-it">
                     <ul>
                         <li>
@@ -194,7 +203,7 @@
                         </li>
                         <li>
                             <span>Ввиду своего опыта, понимаю требования и ожидания рабочей среды и могу легче адаптироваться к компании или организации.</span>
-                            <h4>Понимание<br>рабочего<br>процесса</h4>
+                            <h4>Понимаю<br>рабочий<br>процесса</h4>
                         </li>
                         <li>
                             <span>В IT-сфере я постоянно изучаю новые технологии и развиваю навыки.</span>
@@ -205,6 +214,56 @@
                             <h4>Активная<br>жизненная<br>позиция</h4>
                         </li>
                     </ul>
+                </div>
+                <div id="slider-mobile">
+                    <div class="window-slide">
+                        <div class="slide-holder">
+                            <div class="slide slide1">
+                                <div class="img-holder">
+                                    <h4>Отлично<br>работаю<br>в команде</h4>
+                                </div>
+                                <p>За моими плечами профессиональный опыт работы более 6 лет в сфере систем автоматизации в разных командах и на различных проектах, бо&#769;льшая часть из которых в международной компании Emerson.</p>
+                            </div>
+                            <div class="slide slide2">
+                                <div class="img-holder">
+                                    <h4>Не боюсь проблем</h4>
+                                </div>
+                                <p>Проект новый, сложный и нужно реализовать в сжатые сроки? Сталкивался и справлялся с этим регулярно! Готов к новым вызовам.</p>
+                            </div>
+                            <div class="slide slide3">
+                                <div class="img-holder">
+                                    <h4>Коммуникабелен</h4>
+                                </div>
+                                <p>Найти общий язык с командой проекта, провести совещание у заказчика, обговорить вопросы по проекту или просто провести деловую встречу - не проблема.</p>
+                            </div>
+                            <div class="slide slide4">
+                                <div class="img-holder">
+                                    <h4>Понимаю<br>рабочий<br>процесса</h4>
+                                </div>
+                                <p>Ввиду своего опыта, понимаю требования и ожидания рабочей среды и могу легче адаптироваться к компании или организации.</p>
+                            </div>
+                            <div class="slide slide5">
+                                <div class="img-holder">
+                                    <h4>Имею безудержное желание учиться</h4>
+                                </div>
+                                <p>В IT-сфере я постоянно изучаю новые технологии и развиваю навыки.</p>
+                            </div>
+                            <div class="slide slide6">
+                                <div class="img-holder">
+                                    <h4>Активная<br>жизненная<br>позиция</h4>
+                                </div>
+                                <p>Живу по принципу "активиста". Знаю, что все зависит от меня - беру и делаю. А эффективный таймменеджмент помогает мне быть более продуктивным.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-buttons">
+                        <div class="prev-slide">
+                            <button><i class="fa-solid fa-chevron-left"></i></button>
+                        </div>
+                        <div class="next-slide">
+                            <button><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -267,6 +326,7 @@
                 <p>Латыпов Вадим | Сайт-портфолио<br>2023 Все права защищены &copy;</p>
             </div>
             <div class="social">
+                <a href="https://t.me/vadimlatypov" target="_blank"><i class="fa-brands fa-telegram"></i></a>
                 <a href="https://github.com/VadimLatypov" target="_blank"><i class="fa-brands fa-square-github activeMouse"></i></a>
             </div>
         </div>
@@ -276,6 +336,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/ajax.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/main.min.js"></script>
 </body>
 </html>
