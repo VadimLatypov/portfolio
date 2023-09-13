@@ -152,18 +152,17 @@ header {
             z-index: 0;
 
             @media (max-width: 650px) {
-                position: absolute;
-                top: 0;
-            }
-
-            &#mountain1 {
-                background: url('/img/header_1.png') no-repeat 0 bottom fixed;
-                transition: all 10ms ease;
-                background-size: 104vw;
-                @include bgMountain;
+                background: $bgColor;
             }
 
             @media (min-width: 650px) {
+                &#mountain1 {
+                    background: url('/img/header_1.png') no-repeat 0 bottom fixed;
+                    transition: all 10ms ease;
+                    background-size: 104vw;
+                    @include bgMountain;
+                }
+
                 &#mountain2 {
                     background: url('/img/header_2.png') no-repeat 0 bottom fixed;
                     transition: all 10ms ease;
@@ -275,20 +274,20 @@ header {
 
     .title {
         width: 100%;
-        margin-top: 12%;
+        margin-top: 12vh;
 
-        @media (min-width: 1350px) and (max-width: 1600px) {
-            margin-top: 17%;
+        @media (min-width: 650px) and (max-width: 1600px) {
+            margin-top: 17vh;
         }
-        @media (min-width: 1024px) and (max-width: 1350px) {
-            margin-top: 22%;
-        }
-        @media (min-width: 650px) and (max-width: 1024px) {
-            margin-top: 30%;
-        }
+        // @media (min-width: 1024px) and (max-width: 1350px) {
+        //     margin-top: 22vh;
+        // }
+        // @media (min-width: 650px) and (max-width: 1024px) {
+        //     margin-top: 20vh;
+        // }
         @media (max-width: 650px) {
             margin-top: 0;
-            padding-top: 40%;
+            padding-top: 30vh;
         }
         
         h1, h3 {
@@ -970,7 +969,7 @@ main {
 
                             p {
                                 text-align: justify;
-                                padding: 35px 0 10px;
+                                padding: 40px 0 10px;
                             }
 
                             &.slide1 {
@@ -1024,11 +1023,11 @@ main {
                     transform: translateY(-145px);
 
                     @media (max-width: 670px) {
-                        transform: translateY(-165px);
+                        transform: translateY(-170px);
                         margin: 0;
                     }
                     @media (max-width: 400px) {
-                        transform: translateY(-205px);
+                        transform: translateY(-210px);
                     }
 
                     .prev-slide button,
