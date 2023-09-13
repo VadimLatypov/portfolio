@@ -1,4 +1,6 @@
 <?php
+    require_once("config.php");
+
     $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_SPECIAL_CHARS));
     $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
     $message = trim(filter_var($_POST['message'], FILTER_SANITIZE_SPECIAL_CHARS));
@@ -18,7 +20,7 @@
     }
 
     // Отправка почты
-    $to = 'vadim@ltvi.site, ltvi.vadim@gmail.com';
+    $to = "$email1, $email2";
     $subject = "=?utf-8?B?".base64_encode("Сообщение с сайта-портфолио")."?=";
     $message = "Имя: $name. Сообщение: $message";
     $headers = "From: $email\r\nReply-to: $email\r\nContent-type: text/html; charset=utf-8\r\n";
