@@ -49,6 +49,7 @@ $(document).ready(() => {
     // Вертикальная навигация (разметка)
     for (let i = 0; i < arr_offset.length; i++) {
         let offset_top = $(`#${arr_offset[i]}`).offset().top / $(document).height() * 100;
+        console.log(offset_top);
         $(`.vertical-navigation .${arr_offset[i]}`).css({
             'top': offset_top + '%'
         })
@@ -194,13 +195,22 @@ let portfolio = [
         title: 'portfolio',
         img: 'portfolio.png',
         description: 'Сайт-портфолио, на котором Вы сейчас находитесь, является моей визитной карточкой. Написан с использованием таких технологий, как <b>SCSS</b>, <b>jQuery</b>, <b>сборщик GULP</b> с основными библиотеками, и немного <b>AJAX+PHP</b> под нужды почты.',
-        link: 'https://ltvi.site'
+        link: 'https://ltvi.site',
+        github: 'https://github.com/VadimLatypov/portfolio'
     },
     {
         title: 'cutdown',
         img: 'cutdown.png',
-        description: 'Сервис по сокращению ссылок целиком и полностью написан "<b>чистым</b>" кодом, без использования каких-либо библиотек и фреймворков. В основу взят язык <b>PHP</b> и схема проектирования <b>MVC</b>, а также СУБД <b>MySQL</b>. Содержит систему регистрации, авторизации для удобства пользователя, а также обратную связь через библиотеку PHPMailer.',
-        link: 'https://cutdown.ltvi.site'
+        description: 'Сервис по сокращению ссылок целиком и полностью написан "<b>чистым</b>" кодом, без использования каких-либо библиотек и фреймворков. В основу взят язык <b>PHP</b> и схема проектирования <b>MVC</b>, а также СУБД <b>MySQL</b>. Содержит систему регистрации, авторизации для удобства пользователя, а также обратную связь через библиотеку <b>PHPMailer</b>.',
+        link: 'https://cutdown.ltvi.site',
+        github: 'https://github.com/VadimLatypov/cutdown'
+    },
+    {
+        title: 'layout',
+        img: 'layout.png',
+        description: 'Верстка по шаблону <b>Figma</b> выполнена на основе следующего стека: препроцессор <b>SCSS</b>, фреймворк <b>Vue.js</b>, а также сборщик <b>Webpack</b>. Данный сайт не несет смысловой нагрузки, он лишь показывает работу с Vue и SCSS в рамках реализации заданного шаблона (содержит только пару страниц).',
+        link: 'https://layout.ltvi.site',
+        github: 'https://github.com/VadimLatypov/layout'
     },
 ]
 
@@ -209,16 +219,18 @@ const learnMore = (site) => {
         if(site == el.title) {
             $('.learn-more img').attr('src', `img/sites/${el.img}`);
             $('.learn-more p').html(el.description);
-            $('.learn-more .go-to a').attr('href', el.link);
+            $('.learn-more .go-to.site a').attr('href', el.link);
+            $('.learn-more .go-to.github a').attr('href', el.github);
             $('.learn-more').slideDown('slow');
             $('.mask').fadeIn('fast');
         } else {
             return;
         }
     });
-    if(site == 'portfolio')
-        $('.learn-more .go-to').hie('fast');
-    else {
+    if(site == 'portfolio') {
+        $('.learn-more .go-to.site').hide('fast');
+        $('.learn-more .go-to.github').fadeIn('slow');
+    } else {
         setTimeout(() => {
             $('.learn-more .go-to').fadeIn('slow');
         }, 500);

@@ -10,7 +10,7 @@
     if(strlen($name) < 2)
         $error = 'Имя слишком короткое (не менее 2 символов)';
     else if(strlen($email) < 5)
-        $error = 'Email слишком короткий (не менее 3 символов)';
+        $error = 'Email слишком короткий (не менее 5 символов)';
     else if(strlen($message) < 1)
         $error = 'Введите сообщение';
     
