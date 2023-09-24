@@ -1043,6 +1043,7 @@ main {
         #portfolio {
             width: 100%;
             min-height: 100vh;
+            margin-bottom: 100px;
 
             h2 {
                 margin-top: 0;
@@ -1095,6 +1096,14 @@ main {
                         cursor: default;
                     }
 
+                    h4 {
+                        background-color: $bgColor;
+                        color: $textColor;
+                        text-align: center;
+                        transform: translateY(-300px);
+                        transition: all 500ms ease;
+                    }
+
                     button {
                         display: block;
                         margin: 0 auto;
@@ -1119,6 +1128,10 @@ main {
                             filter: blur(3px);
                         }
 
+                        h4 {
+                            transform: translateY(-210px);
+                        }
+
                         button {
                             @extend %shadowBlue;
                             transform: translateY(-100px);
@@ -1137,6 +1150,11 @@ main {
 
                     &:nth-child(3) .preview {
                         background: url('/img/sites/layout.png') center center no-repeat;
+                        background-size: cover;
+                    }
+
+                    &:nth-child(4) .preview {
+                        background: url('/img/sites/shop.png') center center no-repeat;
                         background-size: cover;
                     }
                 }

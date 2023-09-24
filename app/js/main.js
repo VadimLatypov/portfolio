@@ -212,6 +212,13 @@ let portfolio = [
         link: 'https://layout.ltvi.site',
         github: 'https://github.com/VadimLatypov/layout'
     },
+    {
+        title: 'shop',
+        img: 'shop.png',
+        description: 'Интернет-магазин несет исключительно <u>демонстрационный</u> характер. Сайт написан на основе фреймворка <b>Laravel</b> с использованием <b>AJAX (jQuery)</b>, <b>SCSS</b> и СУБД <b>MySQL</b>. Подовляющая часть стилей реализована с помощью фреймворка <b>Bootstrap</b>.',
+        link: 'https://shop.ltvi.site',
+        github: 'https://github.com/VadimLatypov/shop'
+    },
 ]
 
 const learnMore = (site) => {
